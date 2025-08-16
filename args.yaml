@@ -1,0 +1,43 @@
+# config.yaml
+model:
+  small_model_name: "gpt2" 
+  medium_model:
+    vocab_size: 50257
+    n_positions: 1024
+    n_embd: 1024
+    n_layer: 24
+    n_head: 16
+    n_inner: 4096
+    activation_function: "gelu_new"
+    resid_pdrop: 0.1
+    embd_pdrop: 0.1
+    attn_pdrop: 0.1
+    layer_norm_epsilon: 1e-5
+    initializer_range: 0.02
+
+dataset: "Skylion007/openwebtext"
+
+training:
+  batch_size: 16
+  max_seq_length: 512
+  num_workers: 0
+  device: "cuda"  # will be converted to torch.device later
+  
+  # small model gradient update
+  k: 500
+  
+  # EMA parameters
+  ema_alpha: 0.7
+  
+  # Weighting parameters
+  alpha: 0.2
+  beta: 0.5
+  
+  # Training control
+  num_epochs: 3
+  learning_rate: 1e-5
+  min_token_length: 30
+  plot_every_n_batches: 500
+  checkpoint_steps: 5000
+  checkpoint_dir: "checkpoints_GMM"
+  load_checkpoint: False
