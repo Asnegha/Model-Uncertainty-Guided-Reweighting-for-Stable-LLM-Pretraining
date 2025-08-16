@@ -27,7 +27,7 @@ This project introduces **MetaEMReweighting**, a novel uncertainty-aware trainin
 
 ---
 
-## 📊 Results
+## Results
 
 The MetaEMReweighting method consistently improves few-shot performance in a 5-shot setting across five benchmarks:
 
